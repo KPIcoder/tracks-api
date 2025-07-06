@@ -1,0 +1,117 @@
+syntax = "proto3";
+
+package app.tracks.v1;
+
+service TrackService {
+    rpc ListTracks (ListTracksRequest) returns (ListTracksResponse);
+    rpc CreateTrack (CreateTrackRequest) returns (CreateTrackResponse);
+    rpc GetTrack (GetTrackRequest) returns (GetTrackResponse);
+    rpc UpdateTrack (UpdateTrackRequest) returns (UpdateTrackResponse);
+    rpc DeleteTrack (DeleteTrackRequest) returns (DeleteTrackResponse);
+    rpc DeleteTracks (DeleteTracksRequest) returns (DeleteTracksResponse);
+    rpc UploadTrackFile (UploadTrackFileRequest) returns (UploadTrackFileResponse);
+    rpc StreamTrackAudio (StreamTrackAudioRequest) returns (stream StreamTrackAudioResponse);
+}
+
+message Track {
+    string id = 1;
+    string title = 2;
+    string artist = 3;
+    string album = 4;
+    repeated string genres = 5;
+    string slug = 6;
+    string cover_image = 7;
+    string audio_file = 8;
+    string created_at = 9;
+    string updated_at = 10;
+}
+
+message Metadata {
+    uint32 page = 1;
+    uint32 limit = 2;
+    uint32 total = 3;
+    uint32 total_pages = 4;
+}
+
+message ListTracksRequest {
+    uint32 page = 1;
+    uint32 limit = 2;
+    string sort = 3;
+    string order = 4;
+    string search = 5;
+    string genre = 6;
+    string artist = 7;
+}
+
+message ListTracksResponse {
+    repeated Track data = 1;
+    Metadata meta = 2;
+}
+
+message CreateTrackRequest {
+    string title = 1;
+    string artist = 2;
+    string album = 3;
+    repeated string genres = 4;
+    string cover_image = 5;
+}
+
+message CreateTrackResponse {
+    Track track = 1;
+}
+
+message GetTrackRequest {
+    string slug = 1;
+}
+
+message GetTrackResponse {
+    Track track = 1;
+}
+
+message UpdateTrackRequest {
+    string id = 1;
+    string title = 2;
+    string artist = 3;
+    string album = 4;
+    repeated string genres = 5;
+    string cover_image = 6;
+}
+
+message UpdateTrackResponse {
+    Track track = 1;
+}
+
+message DeleteTrackRequest {
+    string id = 1;
+}
+
+message DeleteTrackResponse {
+    bool success = 1;
+}
+
+message DeleteTracksRequest {
+    repeated string ids = 1;
+}
+
+message DeleteTracksResponse {
+    repeated string success = 1;
+    repeated string failed = 2;
+}
+
+message UploadTrackFileRequest {
+    string id = 1;
+    string file_name = 2;
+    bytes chunk = 3;
+}
+
+message UploadTrackFileResponse {
+    Track track = 1;
+}
+
+message StreamTrackAudioRequest {
+    string track_id = 1;
+}
+
+message StreamTrackAudioResponse {
+    bytes chunk = 1;
+}

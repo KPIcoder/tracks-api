@@ -1,0 +1,16 @@
+{
+  "title": "Born to Run",
+  "artist": "Adele",
+  "album": "Future Nostalgia",
+  "genres": [
+    "R&B",
+    "Hip Hop",
+    "Jazz"
+  ],
+  "slug": "born-to-run",
+  "coverImage": "https://picsum.photos/seed/Born%20to%20Run/300/300",
+  "id": "1750993248601",
+  "createdAt": "2025-06-27T03:00:48.601Z",
+  "updatedAt": "2025-07-01T22:35:08.033Z",
+  "audioFile": "1750993248601-sample-15s.mp3.mp3"
+}

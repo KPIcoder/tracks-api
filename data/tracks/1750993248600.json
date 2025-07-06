@@ -1,0 +1,15 @@
+{
+  "title": "Smells Like Teen Spirit",
+  "artist": "Justin Bieber",
+  "album": "Un Verano Sin Ti",
+  "genres": [
+    "Jazz",
+    "Pop",
+    "Country"
+  ],
+  "slug": "smells-like-teen-spirit",
+  "coverImage": "https://picsum.photos/seed/Smells%20Like%20Teen%20Spirit/300/300",
+  "id": "1750993248600",
+  "createdAt": "2025-06-27T03:00:48.600Z",
+  "updatedAt": "2025-06-27T03:00:48.600Z"
+}

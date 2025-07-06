@@ -1,0 +1,16 @@
+{
+  "title": "Like a Rolling Stone",
+  "artist": "Rihanna",
+  "album": "Lose Yourself",
+  "genres": [
+    "Blues",
+    "R&B",
+    "Hip Hop"
+  ],
+  "slug": "like-a-rolling-stone",
+  "coverImage": "https://picsum.photos/seed/Like%20a%20Rolling%20Stone/300/300",
+  "id": "1741096482741",
+  "createdAt": "2025-03-04T13:54:42.741Z",
+  "updatedAt": "2025-04-22T09:58:05.595Z",
+  "audioFile": "1741096482741.mp3"
+}

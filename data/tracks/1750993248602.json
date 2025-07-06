@@ -1,0 +1,14 @@
+{
+  "title": "Yesterday",
+  "artist": "Dua Lipa",
+  "genres": [
+    "Hip Hop",
+    "Country",
+    "Pop"
+  ],
+  "slug": "yesterday",
+  "coverImage": "https://picsum.photos/seed/Yesterday/300/300",
+  "id": "1750993248602",
+  "createdAt": "2025-06-27T03:00:48.602Z",
+  "updatedAt": "2025-06-27T03:00:48.602Z"
+}

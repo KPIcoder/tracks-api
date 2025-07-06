@@ -1,0 +1,14 @@
+{
+  "title": "Imagine",
+  "artist": "Post Malone",
+  "album": "Positions",
+  "genres": [
+    "Country",
+    "Rock"
+  ],
+  "slug": "imagine",
+  "coverImage": "https://picsum.photos/seed/Imagine/300/300",
+  "id": "1750993248606",
+  "createdAt": "2025-06-27T03:00:48.606Z",
+  "updatedAt": "2025-06-27T03:00:48.606Z"
+}

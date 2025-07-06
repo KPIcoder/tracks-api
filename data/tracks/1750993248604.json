@@ -1,0 +1,14 @@
+{
+  "title": "Tití Me Preguntó",
+  "artist": "Bruno Mars",
+  "genres": [
+    "Classical",
+    "Country",
+    "R&B"
+  ],
+  "slug": "tit-me-pregunt",
+  "coverImage": "https://picsum.photos/seed/Tit%C3%AD%20Me%20Pregunt%C3%B3/300/300",
+  "id": "1750993248604",
+  "createdAt": "2025-06-27T03:00:48.604Z",
+  "updatedAt": "2025-06-27T03:00:48.604Z"
+}
