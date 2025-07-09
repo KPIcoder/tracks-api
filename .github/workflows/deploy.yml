@@ -15,7 +15,7 @@ jobs:
         with:
           host: ${{ secrets.DROPLET_HOST }}
           username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.DROPLET_SSH_KEY }}
+          key: ${{ secrets.DROPLET_SSH}}
           script: |
             cd /var/www/html
 
