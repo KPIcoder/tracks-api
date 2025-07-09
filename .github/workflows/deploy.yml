@@ -1,9 +1,9 @@
-name: Deploy to DigitalOcean
+name: Deploy Node.js App
 
 on:
   push:
     branches:
-      - master  # or your deploy branch
+      - master
 
 jobs:
   deploy:
@@ -13,18 +13,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up SSH key
-        uses: webfactory/ssh-agent@v0.9.1
+      - name: Upload app to server
+        uses: appleboy/scp-action@v0.1.4
         with:
-          ssh-private-key: ${{ secrets.DROPLET_SSH }}
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET }}
+          source: "."
+          target: "/var/www/html"
 
-      - name: Deploy via SSH
-        run: |
-          ssh -o StrictHostKeyChecking=no root@157.245.120.53 << 'EOF'
-            cd /var/www/html || exit
-            git pull origin main
-            npm i
+      - name: Install dependencies and restart PM2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DROPLET_HOST }}
+          username: ${{ secrets.DROPLET_USER }}
+          key: ${{ secrets.DROPLET_SSH }}
+          script: |
+            cd /var/www/html
+            npm install
             npm run build
-            pm2 restart all
+            pm2 restart app || pm2 start dist/index.js --name app
             pm2 save
-          EOF
