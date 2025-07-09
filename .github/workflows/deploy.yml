@@ -10,27 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Upload app to server
-        uses: appleboy/scp-action@v0.1.4
-        with:
-          host: ${{ secrets.DROPLET_HOST }}
-          username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.DROPLET_SSH }}
-          source: "."
-          target: "/var/www/html"
-
-      - name: Install dependencies and restart PM2
+      - name: Deploy via SSH and Git Pull
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.DROPLET_HOST }}
           username: ${{ secrets.DROPLET_USER }}
-          key: ${{ secrets.DROPLET_SSH }}
+          key: ${{ secrets.DROPLET_SSH_KEY }}
           script: |
             cd /var/www/html
+
+            if [ ! -d .git ]; then
+              git clone https://github.com/${{ github.repository }} .
+            else
+              git pull origin master
+            fi
+
             npm install
-            npm run build
+            npm run build || echo "No build step"
             pm2 restart app || pm2 start dist/index.js --name app
             pm2 save
