@@ -23,7 +23,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no root@157.245.120.53 << 'EOF'
             cd /var/www/html || exit
             git pull origin main
-            npm ci
+            npm i
             npm run build
             pm2 restart all
             pm2 save
